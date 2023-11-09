@@ -1,0 +1,46 @@
+{% extends 'base_front.html.twig' %}
+
+{% block title %}PRENDRE RDV{% endblock %}
+
+{% block body %}
+
+<div style= "display: flex; align-items: center;justify-content:center; margin-top:100px;padding:10px;"> 
+<div class="card">
+        <div class="card-body">
+          <h5 class="card-title">PRENDRE UN RDV</h5>
+       {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+            
+            <div class="row mb-3">
+            <label for="inputText" class="col-sm-7 col-form-label"> Nom  </label>
+            {{ form_widget (form.nom,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors (form.nom,{'attr':{'class':'text-danger'}}) }}
+            </div>
+
+            <div class="row mb-3">
+            <label for="inputText" class="col-sm-7 col-form-label"> date  </label>
+            {{ form_widget (form.dateR, {'label': 'Date d\'expiration', 'widget': 'choice', 'html5': true,}) }} 
+                {{ form_errors (form.dateR,{'attr':{'class':'text-danger'}}) }}
+            </div>
+
+            <div class="row mb-3">
+            <label for="inputText" class="col-sm-7 col-form-label"> idpatient  </label>
+            {{ form_widget (form.idpatient,{'attr':{'class':'form-control'}}) }}
+            {{ form_errors (form.idpatient,{'attr':{'class':'text-danger'}}) }}
+            </div>
+
+        </div>
+                    <div class="col-sm-10" style="display:flex; align-items:center; justify-content:center">
+              {{ form_widget (form.Ajouter,{'attr':{'class':'btn btn-primary'}}) }}
+            </div>
+
+        </div>
+<br>
+    </div>
+    <br>
+    {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+    
+{% endblock %}

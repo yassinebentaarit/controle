@@ -1,0 +1,60 @@
+{% extends 'base_front.html.twig' %}
+
+{% block title %}Modifier Categorie{% endblock %}
+
+{% block body %}
+<div class="row" style="display: flex; align-items: center; justify-content:center;margin-top:100px;margin-left:200px">
+    <div class="col-lg-10">
+    <h1>Modifier RDV</h1>
+
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    <div >
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="mb-3 row">
+                {{ form_label(form.nom, 'Nom', { 'attr': {'class': 'col-lg-2 col-form-label'} }) }}
+                <div class="col-lg-10">
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.nom) }}
+                </div>
+                {{ form_label(form.dateR, 'Date', { 'attr': {'class': 'col-lg-2 col-form-label'} }) }}
+                <div class="col-lg-10">
+                    {{ form_widget(form.dateR, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.dateR) }}
+                </div>
+                {{ form_label(form.idpatient, 'Patient', { 'attr': {'class': 'col-lg-2 col-form-label'} }) }}
+                <div class="col-lg-10">
+                    {{ form_widget(form.idpatient, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-error">
+                    {{ form_errors(form.idpatient) }}
+                </div>
+                
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="col-sm-10" style="display:flex; align-items:center">
+        {{ form_widget (form.Ajouter,{'attr':{'class':'btn btn-success'}}) }}
+    </div>
+    {{ form_end(form) }}
+    <br>
+    <a href="{{ path('app_RDV_index') }}" class="btn btn-info">back to list</a>
+    </div></div>    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+
+{% endblock %}

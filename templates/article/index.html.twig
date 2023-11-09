@@ -1,0 +1,101 @@
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Ici Ton Article{% endblock %}
+
+    {% block body %}
+<div class="row" style="display: flex; align-items: center; justify-content:center;margin-top:100px;margin-left:200px">
+    <div class="col-lg-10">
+<a class="btn btn-actualiser" href="{{ path('article_actualiser') }}">Actualiser</a>
+
+    <div class="card">
+        <div class="card-body">            
+            <div style="display:flex;align-items: center; justify-content:center">
+
+            {#{% if formattedDate is null %}#}
+            <!-- Default Table -->
+            <div>
+            <table class="table" border="5">
+            <h2 class="col-sm-5">TABLE DES MEDICAMENT</h2>
+            <br>
+            <thead >           
+                <th scope="col"> Identifiant </th>
+                <th scope="col"> Nom </th>
+                <th scope="col"> Categorie </th>
+                <th scope="col"> Quantite </th>
+                <th scope="col"> Modification</th>
+                <th scope="col"> Date d'Expiration</th>                
+                <th scope="col"> suppression</th>
+            </thead>
+            <tbody>
+
+                {% for article in s %}                    
+                    <tr>
+                       
+                        <td > {{article.id}}</td>
+                        <td > {{article.nomA}}</td>
+                        <td > {{article.categorie}} </td>
+                        <td > {{article.quantite}}</td>
+                        <td > {{article.date|date('Y-M-d')}}</td>
+                        {#<td > {{formattedDate}}</td>#}
+                        <td >
+                            <a class = 'btn btn-success' href="{{path ('modif_article',{'id':article.id}) }}">Modifier </a>
+                        </td>
+                        
+                        <td>
+                            <a class = 'btn btn-danger' href="{{path ('supp_article',{'id':article.id}) }}">Supprimer </a>
+                        </td>
+                    </tr>    
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+        <br> 
+    
+        <a class='btn btn-primary' href="{{path ('add_article') }}">ajouter </a>
+        <br>
+        <br>
+        <br>
+        
+        </div>
+        
+    <!-- End Default Table Example -->
+    </div>
+    {#{% endif %}#}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#search_input").on("change", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                    $("#search_input").on("change", function () {
+                    var value = $(this).val().toLowerCase();
+                    $("#myTable tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+        
+    
+    
+    
+   
+    
+        
+    {% endblock %}
+
+
